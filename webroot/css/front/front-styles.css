@@ -1,0 +1,18 @@
+.logo img {
+    max-height: 80px;
+}
+.preloader .preloader-circle {
+    border-top-color: #16468f
+}
+.btn {
+    background: #16468f
+}
+.mobile_menu .slicknav_menu .slicknav_btn .slicknav_icon-bar {
+    background-color: #16468f !important;
+}
+.mobile_menu .slicknav_menu .slicknav_btn {
+    top: -51px;
+    background: #ffffff;
+    padding: 10px 13px 16px 10px;
+    border-radius: 2px;
+}
