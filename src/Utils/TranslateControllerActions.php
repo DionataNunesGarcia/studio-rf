@@ -56,7 +56,7 @@ class TranslateControllerActions
         'Specialists' => 'Psicólogos',
         'Users' => 'Usuários',
         'Testimonials' => 'Depoimentos',
-        'TherapyBenefits' => 'Benefícios da Terapia',
+        'SpecialistsCategories' => 'Tipos de Especialistas',
     ];
 
     /**

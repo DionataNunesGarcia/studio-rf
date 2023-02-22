@@ -269,49 +269,22 @@ use Cake\Utility\Text;
 </div>
 <!-- Team End -->
 <!-- Testimonial Start -->
-<div class="testimonial-area testimonial-padding">
-    <div class="container">
-        <!-- Testimonial contents -->
-        <div class="row d-flex justify-content-center">
-            <div class="col-xl-8 col-lg-8 col-md-10">
-                <div class="h1-testimonial-active dot-style">
-                    <!-- Single Testimonial -->
-                    <div class="single-testimonial text-center">
-                        <!-- Testimonial Content -->
-                        <div class="testimonial-caption ">
-                            <div class="testimonial-top-cap">
-                                <img src="front-template/assets/img/gallery/testi-logo.png" alt="">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip</p>
-                            </div>
-                            <!-- founder -->
-                            <div class="testimonial-founder  ">
-                                <div class="founder-img">
-                                    <span><strong>Christine Eve</strong>   -   Co Founder</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Single Testimonial -->
-                    <div class="single-testimonial text-center">
-                        <!-- Testimonial Content -->
-                        <div class="testimonial-caption ">
-                            <div class="testimonial-top-cap">
-                                <img src="front-template/assets/img/gallery/testi-logo.png" alt="">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip</p>
-                            </div>
-                            <!-- founder -->
-                            <div class="testimonial-founder  ">
-                                <div class="founder-img">
-                                    <span><strong>Christine Eve</strong>   -   Co Founder</span>
-                                </div>
-                            </div>
-                        </div>
+<?php if ($testimonials) { ?>
+    <div class="testimonial-area testimonial-padding">
+        <div class="container">
+            <!-- Testimonial contents -->
+            <div class="row d-flex justify-content-center">
+                <div class="col-xl-8 col-lg-8 col-md-10">
+                    <div class="h1-testimonial-active dot-style">
+                        <?php foreach ($testimonials as $testimonial ) { ?>
+                            <?= $this->element("front/testimonial", ['testimonial' => $testimonial]); ?>
+                        <?php } ?>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+<?php } ?>
 <!-- Testimonial End -->
 <!-- Brand Area Start -->
 <div class="brand-area pt-120 pb-120">
@@ -355,6 +328,7 @@ use Cake\Utility\Text;
     </div>
 </section>
 <!-- Want To work End -->
+<?php if ($blogs) { ?>
 <!-- Blog Area Start -->
 <div class="home-blog-area section-padding30">
     <div class="container">
@@ -362,82 +336,16 @@ use Cake\Utility\Text;
         <div class="row">
             <div class="col-lg-12">
                 <div class="section-tittle text-center mb-70">
-                    <span>Our latest blog</span>
-                    <h2>Our recent news</h2>
+                    <h2>Últimas Postagens</h2>
                 </div>
             </div>
         </div>
         <div class="row">
-            <div class="col-xl-6 col-lg-6 col-md-6">
-                <div class="home-blog-single mb-30">
-                    <div class="blog-img-cap">
-                        <div class="blog-img">
-                            <img src="front-template/assets/img/gallery/home_blog1.png" alt="">
-                        </div>
-                        <ul>
-                            <li class="black-bg">October 27, 2020</li>
-                            <li>By Admin   -   30 Likes   -   4 Comments</li>
-                        </ul>
-                        <div class="blog-cap">
-                            <h3><a href="blog_details.html">16 Easy Ideas to Use Everyday
-                                    Stuff in Kitchen.</a></h3>
-                            <a href="blog_details.html" class="more-btn">Read more</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-6 col-lg-6 col-md-6">
-                <div class="home-blog-single mb-30">
-                    <div class="blog-img-cap">
-                        <div class="blog-img">
-                            <img src="front-template/assets/img/gallery/home_blog2.png" alt="">
-                        </div>
-                        <ul>
-                            <li class="black-bg">October 27, 2020</li>
-                            <li>By Admin   -   30 Likes   -   4 Comments</li>
-                        </ul>
-                        <div class="blog-cap">
-                            <h3><a href="blog_details.html">16 Easy Ideas to Use Everyday
-                                    Stuff in Kitchen.</a></h3>
-                            <a href="blog_details.html" class="more-btn">Read more</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <?php foreach ($blogs as $blog) { ?>
+                <?= $this->element('front/blog-card-home', ['blog' => $blog]) ?>
+            <?php } ?>
         </div>
     </div>
 </div>
-<!-- Blog Area End -->
-
-<!-- ======= Call To Action Section ======= -->
-<!--<section id="call-to-action" class="call-to-action">-->
-<!--    <div class="container" data-aos="fade-up">-->
-<!--        <div class="row justify-content-center">-->
-<!--            <div class="col-lg-6 text-center">-->
-<!--                <h3>Ut fugiat aliquam aut non</h3>-->
-<!--                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.</p>-->
-<!--                <a class="cta-btn" href="#">Call To Action</a>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--</section>-->
-<!-- End Call To Action Section -->
-
-<?php if ($blogs) { ?>
-    <!-- ======= Recent Blog Posts Section ======= -->
-    <section id="recent-posts" class="recent-posts">
-        <div class="container" data-aos="fade-up">
-            <div class="section-header">
-                <h2>
-                    Ultímas Postagens
-                </h2>
-            </div>
-            <div class="row gy-5">
-                <?php foreach ($blogs as $blog) { ?>
-                    <?= $this->element('front/blog-card-home', ['blog' => $blog]) ?>
-                <?php } ?>
-            </div>
-        </div>
-    </section>
-<!-- End Recent Blog Posts Section -->
 <?php } ?>
+<!-- Blog Area End -->

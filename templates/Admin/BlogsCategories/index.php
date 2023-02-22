@@ -71,7 +71,6 @@
         ]);
         ?>";
 
-    let titlePdf = "Categorias de Blogs";
     let datatableCurrent = $('#table-index').DataTable({
         dom: datatablesCustom.dom(),
         buttons: datatablesCustom.buttons(),

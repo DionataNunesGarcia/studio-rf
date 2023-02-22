@@ -62,7 +62,6 @@
         ]);
         ?>";
 
-    let titlePdf = "Benefícios da Terapia";
     let datatableCurrent = $('#table-index').DataTable({
         dom: datatablesCustom.dom(),
         buttons: datatablesCustom.buttons(),

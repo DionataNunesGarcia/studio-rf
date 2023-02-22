@@ -1,11 +1,15 @@
 .logo img {
     max-height: 80px;
 }
+.footer-logo {
+    text-align: center;
+}
+.footer-logo img {
+    max-height: 60px;
+    margin: 0 auto;
+}
 .preloader .preloader-circle {
     border-top-color: #16468f
-}
-.btn {
-    background: #16468f
 }
 .mobile_menu .slicknav_menu .slicknav_btn .slicknav_icon-bar {
     background-color: #16468f !important;
@@ -15,4 +19,47 @@
     background: #ffffff;
     padding: 10px 13px 16px 10px;
     border-radius: 2px;
+}
+.btn,
+#scrollUp,
+#back-top,
+.video-icon a,
+.single-team .team-caption span::before,
+.services-area .single-services:hover .services-caption,
+.services-area .single-services .services-caption h3::before,
+.gallery-area .single-gallery .thumb-content-box .thumb-content a {
+    background: #16468f;
+}
+.video-icon a.btn-icon:hover,
+.gallery-area .single-gallery .thumb-content-box .thumb-content a:hover,
+.testimonial-area .testimonial-caption .testimonial-founder .founder-img span {
+    color: #16468f;
+}
+.team-area, .brand-area {
+    background: #0c0f16;
+}
+.home-blog-area .home-blog-single .blog-img-cap .blog-img img {
+    max-height: 200px;
+}
+
+.header-area .menu-wrapper .main-menu ul li > a {
+    font-size: 20px;
+}
+.header-area .menu-wrapper .main-menu ul li:hover > a {
+    text-shadow: 1px -2px 9px rgba(255,255,255,0.75);
+    color: #ffffff;
+    font-weight: bold;
+}
+.about-text {
+    background: #ffffff;
+    padding: 15px 10px;
+}
+.about-text {
+    background: #ffffff;
+    padding: 35px 30px;
+}
+.about-text h2 {
+    color: #000000;
+    margin-bottom: 25px;
+    font-size: 42px;
 }

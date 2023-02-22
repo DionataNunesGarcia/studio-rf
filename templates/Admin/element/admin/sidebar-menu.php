@@ -28,61 +28,14 @@
             <li>
                 <a href="<?= $this->Url->build(['controller' => 'Patients', 'action' => 'index'], ['fullBase' => true]); ?>" title="" data-placement="right">
                     <i class="fa fa-users"></i>
-                    <?= __('Pacientes') ?>
+                    <?= __('Clientes') ?>
                 </a>
             </li>
-            <?php if ($userSession['specialist']) { ?>
-                <li>
-                    <a href="<?= $this->Url->build(['controller' => 'Patients', 'action' => 'searchOnlyYourPatients'], ['fullBase' => true]); ?>" title="" data-placement="right">
-                        <i class="fa fa-users"></i>
-                        <?= __('Meus Pacientes') ?>
-                    </a>
-                </li>
-            <?php } ?>
-            <li>
-                <a href="<?= $this->Url->build(['controller' => 'Consultations', 'action' => 'index'], ['fullBase' => true]); ?>" title="" data-placement="right">
-                    <i class="fa fa-bed"></i>
-                    <?= __('Consultas') ?>
-                </a>
-            </li>
-            <?php if($userSession['specialist']) { ?>
-                <li>
-                    <a href="<?= $this->Url->build(['controller' => 'Consultations', 'action' => 'index'], ['fullBase' => true]); ?>" title="" data-placement="right">
-                        <i class="fa fa-bed"></i>
-                        <?= __('Minhas Consultas') ?>
-                    </a>
-                </li>
-            <?php } ?>
             <li>
                 <a href="<?= $this->Url->build(['controller' => 'Events', 'action' => 'index'], ['fullBase' => true]); ?>" data-placement="right">
                     <i class="fa fa-calendar-plus-o"></i>
                     <?= __('Calendário') ?>
                 </a>
-            </li>
-            <li class=" treeview">
-                <a href="#">
-                    <i class="fa fa-drivers-license"></i>
-                    <span>
-                        <?= __('Cadastros') ?>
-                    </span>
-                    <span class="pull-right-container">
-                        <i class="fa fa-angle-left pull-right"></i>
-                    </span>
-                </a>
-                <ul class="treeview-menu">
-                    <li>
-                        <a href="<?= $this->Url->build(['controller' => 'Specialists', 'action' => 'index'], ['fullBase' => true]); ?>" data-placement="right">
-                            <i class="fa fa-user-md"></i>
-                            <?= __('Psicólogos') ?>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="<?= $this->Url->build(['controller' => 'EventsTypes', 'action' => 'index'], ['fullBase' => true]); ?>" data-placement="right">
-                            <i class="fa fa-calendar-o"></i>
-                            <?= __('Tipos de Eventos') ?>
-                        </a>
-                    </li>
-                </ul>
             </li>
             <!-- Site -->
             <li class=" treeview">
@@ -127,12 +80,6 @@
                         </a>
                     </li>
                     <li>
-                        <a href="<?= $this->Url->build(['controller' => 'TherapyBenefits', 'action' => 'index'], ['fullBase' => true]); ?>" title="" data-placement="right">
-                            <i class="fa fa-circle-o"></i>
-                            <?= __('Beneficíos da Terapia') ?>
-                        </a>
-                    </li>
-                    <li>
                         <a href="<?= $this->Url->build(['controller' => 'OurServices', 'action' => 'index'], ['fullBase' => true]); ?>" title="" data-placement="right">
                             <i class="fa fa-circle-o"></i>
                             <?= __('Serviços') ?>
@@ -160,6 +107,18 @@
                         <a href="<?= $this->Url->build(['controller' => 'ContactsNewsletters', 'action' => 'index'], ['fullBase' => true]); ?>" title="" data-placement="right">
                             <i class="fa fa-envelope"></i>
                             <?= __('NewsLetters') ?>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="<?= $this->Url->build(['controller' => 'EventsTypes', 'action' => 'index'], ['fullBase' => true]); ?>" data-placement="right">
+                            <i class="fa fa-calendar-o"></i>
+                            <?= __('Tipos de Eventos') ?>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="<?= $this->Url->build(['controller' => 'SpecialistsCategories', 'action' => 'index'], ['fullBase' => true]); ?>" title="" data-placement="right">
+                            <i class="fa fa-circle-o"></i>
+                            <?= __('Tipos de Especialistas') ?>
                         </a>
                     </li>
                 </ul>

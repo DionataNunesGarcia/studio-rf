@@ -5,44 +5,44 @@ namespace App\Controller\Admin;
 
 use App\Controller\AppController;
 use App\Error\Exception\ValidationErrorException;
-use App\Services\Datatables\SpecialistsDatatablesService;
-use App\Services\Form\SpecialistsFormService;
-use App\Services\Manager\SpecialistsManagerService;
+use App\Services\Datatables\SpecialistsCategoriesDatatablesService;
+use App\Services\Form\SpecialistsCategoriesFormService;
+use App\Services\Manager\SpecialistsCategoriesManagerService;
 
 /**
- * Specialists Controller
+ * SpecialistsCategories Controller
  *
- * @property \App\Model\Table\SpecialistsTable $Specialists
- * @method \App\Model\Entity\Specialist[]|\Cake\Datasource\ResultSetInterface paginate($object = null, array $settings = [])
+ * @property \App\Model\Table\SpecialistsCategoriesTable $SpecialistsCategories
+ * @method \App\Model\Entity\SpecialistsCategory[]|\Cake\Datasource\ResultSetInterface paginate($object = null, array $settings = [])
  */
-class SpecialistsController extends AdminController
+class SpecialistsCategoriesController extends AdminController
 {
-    /**
-     * @var SpecialistsFormService $_formService
-     */
-    private SpecialistsFormService $_formService;
 
     /**
-     * @var SpecialistsManagerService $_managerService
+     * @var SpecialistsCategoriesFormService $_formService
      */
-    private SpecialistsManagerService $_managerService;
+    private SpecialistsCategoriesFormService $_formService;
 
     /**
-     * @var SpecialistsDatatablesService $_datatableService
+     * @var SpecialistsCategoriesManagerService $_managerService
      */
-    private SpecialistsDatatablesService $_datatableService;
+    private SpecialistsCategoriesManagerService $_managerService;
+
+    /**
+     * @var SpecialistsCategoriesDatatablesService
+     */
+    private SpecialistsCategoriesDatatablesService $_datatableService;
 
     /**
      * @return void
-     * @throws \Exception
      */
     public function initialize(): void
     {
         parent::initialize();
 
-        $this->_formService = new SpecialistsFormService($this);
-        $this->_managerService = new SpecialistsManagerService($this);
-        $this->_datatableService = new SpecialistsDatatablesService($this);
+        $this->_formService = new SpecialistsCategoriesFormService($this);
+        $this->_managerService = new SpecialistsCategoriesManagerService($this);
+        $this->_datatableService = new SpecialistsCategoriesDatatablesService($this);
     }
 
     /**
@@ -92,7 +92,7 @@ class SpecialistsController extends AdminController
     /**
      * Edit method
      *
-     * @param int|null $id id.
+     * @param string|null $id Level id.
      * @return \Cake\Http\Response|null|void Redirects on successful edit, renders view otherwise.
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      */

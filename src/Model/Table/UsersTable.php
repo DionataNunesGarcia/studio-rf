@@ -159,7 +159,6 @@ class UsersTable extends Table
                     'contain' => [
                         "Levels",
                         "Avatar",
-                        "Specialist",
                     ]
                 ]);
         }

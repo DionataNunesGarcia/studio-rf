@@ -3,10 +3,38 @@ declare(strict_types=1);
 
 use Migrations\AbstractMigration;
 
-class CreateTablePatients extends AbstractMigration
+class Specialists extends AbstractMigration
 {
     public function up()
     {
+        $this->table('specialists_categories')
+            ->addColumn('name', 'string', [
+                'default' => null,
+                'limit' => 255,
+                'null' => false,
+            ])
+            ->addColumn('slug', 'string', [
+                'default' => null,
+                'limit' => 60,
+                'null' => false,
+            ])
+            ->addColumn('status', 'integer', [
+                'default' => null,
+                'limit' => 11,
+                'null' => false,
+            ])
+            ->addColumn('created', 'datetime', [
+                'default' => null,
+                'limit' => null,
+                'null' => true,
+            ])
+            ->addColumn('modified', 'datetime', [
+                'default' => null,
+                'limit' => null,
+                'null' => true,
+            ])
+            ->create();
+
         $this->table('specialists')
             ->addColumn('name', 'string', [
                 'limit' => 255,
@@ -36,6 +64,11 @@ class CreateTablePatients extends AbstractMigration
                 'limit' => \Phinx\Db\Adapter\MysqlAdapter::TEXT_LONG,
                 'null' => true,
             ])
+            ->addColumn('specialist_category_id', 'integer', [
+                'default' => null,
+                'limit' => 11,
+                'null' => false,
+            ])
             ->addColumn('user_id', 'integer', [
                 'default' => null,
                 'limit' => 11,
@@ -58,7 +91,7 @@ class CreateTablePatients extends AbstractMigration
             ])
             ->create();
 
-        $this->table('patients')
+        $this->table('clients')
             ->addColumn('name', 'string', [
                 'limit' => 255,
                 'null' => false,
@@ -98,11 +131,6 @@ class CreateTablePatients extends AbstractMigration
                 'limit' => \Phinx\Db\Adapter\MysqlAdapter::TEXT_LONG,
                 'null' => true,
             ])
-            ->addColumn('specialist_id', 'integer', [
-                'default' => null,
-                'limit' => 11,
-                'null' => false,
-            ])
             ->addColumn('user_id', 'integer', [
                 'default' => null,
                 'limit' => 11,
@@ -128,11 +156,15 @@ class CreateTablePatients extends AbstractMigration
 
     public function down()
     {
+        $this->table('specialists_categories')
+            ->drop()
+            ->save();
+
         $this->table('specialists')
             ->drop()
             ->save();
 
-        $this->table('patients')
+        $this->table('clients')
             ->drop()
             ->save();
     }

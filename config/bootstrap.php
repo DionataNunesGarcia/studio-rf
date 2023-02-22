@@ -228,11 +228,11 @@ setlocale(LC_ALL, 'pt_BR', 'pt_BR.utf-8', 'pt_BR.utf-8', 'portuguese');
 
 
 Configure::write('Client', [
-    'name' => 'Camila Moraes - Psi',
+    'name' => 'Studio RF - PRO',
     'email' => 'dionata.nunes.garcia@gmail.com',
     'link' => '#',
-    'skin' => 'skin-yellow-light',
+    'skin' => 'skin-blue-light',
     'logo' => [
-        'large' => 'Camila Moraes <b>PSI</b>'
+        'large' => 'Studio RF <b>PRO</b>'
     ],
 ]);

@@ -11,16 +11,20 @@
                         <div class="single-footer-caption mb-50">
                             <!-- logo -->
                             <div class="footer-logo">
-                                <a href="index.html"><img src="front-template/assets/img/logo/logo2_footer.png" alt=""></a>
+                                <a href="<?= $this->Url->build('/', ['fullBase' => true]); ?>">
+                                    <?= $this->Html->image('logo.png', ['class' => 'logo']); ?>
+                                </a>
                             </div>
                             <div class="footer-tittle">
                                 <div class="footer-pera">
-                                    <p class="info1">Grabbing the concsumer’s attention isn’t enough you have to keep that attention for at least a.</p>
+                                    <p class="info1">
+                                        Construindo sonhos com leveza ✨
+                                    </p>
                                 </div>
                             </div>
                             <div class="footer-number">
-                                <h4><span>+564 </span>7885 3222</h4>
-                                <p>youremail@gmail.com</p>
+                                <h4><?= \App\Utils\Masks::phone($about->cell_phone) ?></h4>
+                                <p><?= $about->email ?></p>
                             </div>
                         </div>
                     </div>
@@ -30,12 +34,11 @@
                                 <h4>Useful Links</h4>
                             </div>
                             <div class="footer-cap">
-                                <span>New York</span>
-                                <p>123 East 26th Street, Fifth Floor, New York, NY 10011</p>
-                            </div>
-                            <div class="footer-cap">
-                                <span>Japan</span>
-                                <p>123 East 26th Street, Fifth Floor, New York, NY 10011</p>
+
+                                <!--                            Brasil <br><br>-->
+
+                                <span><?= $about->address->city ?>/<?= $about->address->uf ?></span>
+<!--                                <p>123 East 26th Street, Fifth Floor, New York, NY 10011</p>-->
                             </div>
                         </div>
                     </div>
@@ -93,7 +96,7 @@
 <!--        <div class="container">-->
 <!--            <div class="row gy-4">-->
 <!--                <div class="col-lg-5 col-md-12 footer-info text-center">-->
-<!--                    <a href="--><?php //= $this->Url->build('/', ['fullBase' => true]); ?><!--" class="logo d-flex align-items-center">-->
+<!--                    <a href="--><?= $this->Url->build('/', ['fullBase' => true]); ?><!--" class="logo d-flex align-items-center">-->
 <!--                        <span>-->
 <!--                            --><?php //= $this->Html->image('logo.png', ['class' => 'logo']); ?>
 <!--                        </span>-->

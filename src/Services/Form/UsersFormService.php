@@ -74,7 +74,6 @@ class UsersFormService extends DefaultService
             ->contain([
                 "Levels.LevelsPermissions",
                 "Avatar",
-                "Specialist",
             ])
             ->firstOrFail();
     }

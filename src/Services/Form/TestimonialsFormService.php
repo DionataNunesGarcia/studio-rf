@@ -52,9 +52,10 @@ class TestimonialsFormService extends DefaultService
     }
 
     /**
-     * @return \Cake\ORM\Query
+     * @param int $limit
+     * @return Query
      */
-    public function getListFront() :Query
+    public function getListFront(int $limit = 5) :Query
     {
         return $this->__table
             ->find()
@@ -64,7 +65,7 @@ class TestimonialsFormService extends DefaultService
             ])
             ->orderDesc("{$this->getModel()}.created")
             ->group("{$this->getModel()}.id")
-            ->limit(5);
+            ->limit($limit);
     }
 
     /**

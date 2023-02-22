@@ -29,6 +29,9 @@ $url = Router::url('/', true);
         <?= $this->Html->meta('icon') ?>
         <?= $this->element('admin/head-css') ?>
         <?= $this->element('admin/head-js') ?>
+        <script>
+            const titlePdf = "<?= $title ?>";
+        </script>
 
         <?= $this->fetch('meta') ?>
         <?= $this->fetch('css') ?>
@@ -44,7 +47,6 @@ $url = Router::url('/', true);
                     <span></span>
                 </div>
             </div>
-            <?php // $this->Form->hidden('valida_permissoes', ['id' => 'valida_permissoes', 'value' => $permissoes]) ?>
 
             <?= $this->element('admin/top-menu') ?>
 

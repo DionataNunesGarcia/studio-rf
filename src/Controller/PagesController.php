@@ -146,21 +146,19 @@ class PagesController extends AppController
      */
     public function home()
     {
-        $blogs = $this->_blogsFormService->getLatestPosts();
+        $blogs = $this->_blogsFormService->getLatestPosts(2);
         $ourServices = $this->_ourServicesFormService->getList();
+        $testimonials = $this->_testimonialsFormService->getListFront(10);
 
         $this->set(compact(
             'blogs',
+            'testimonials',
             'ourServices'
         ));
     }
 
     public function about()
     {
-        $benefits = $this->_benefitsFormService->getList();
-        $this->set(compact(
-            'benefits',
-        ));
     }
 
     public function services()
