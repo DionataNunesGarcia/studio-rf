@@ -1,4 +1,6 @@
 <?php
+
+use App\Utils\Images;
 use Cake\Utility\Text;
 ?>
 <div class="slider-area">
@@ -90,59 +92,58 @@ use Cake\Utility\Text;
 </div>
 <!-- Professional Services End -->
 <!-- our info End -->
-<!--? Services Ara Start -->
-<div class="services-area section-padding3">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="cl-xl-7 col-lg-8 col-md-10">
-                <!-- Section Tittle -->
-                <div class="section-tittle text-center mb-70">
-                    <span>Our Professional Services</span>
-                    <h2>Best Interitor Services</h2>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-4 col-md-6 col-sm-10">
-                <div class="single-services mb-200">
-                    <div class="services-img">
-                        <img src="front-template/assets/img/gallery/services1.png" alt="">
-                    </div>
-                    <div class="services-caption">
-                        <h3><a href="services.html">Lighting</a></h3>
-                        <p class="pera1">For each project we establish </p>
-                        <p class="pera2">For each project we establish relationships with partners who we know will help us. </p>
+<?php if ($ourServices) { ?>
+    <!--? Services Ara Start -->
+    <div class="services-area section-padding3">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="cl-xl-7 col-lg-8 col-md-10">
+                    <!-- Section Tittle -->
+                    <div class="section-tittle text-center mb-70">
+                        <span>Nossas Especialidades</span>
+                        <h2>O que nós fazemos</h2>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-6 col-sm-10">
-                <div class="single-services mb-200">
-                    <div class="services-img">
-                        <img src="front-template/assets/img/gallery/services2.png" alt="">
+            <div class="row">
+                <?php foreach ($ourServices as $service) { ?>
+                    <div class="col-lg-4 col-md-6 col-sm-10">
+                        <div class="single-services mb-200">
+                            <div class="services-img">
+                                <img src="<?= Images::getImage($service->icon) ?>" alt="">
+                            </div>
+                            <div class="services-caption">
+                                <h3><a href="<?= $this->Url->build("/servico/{$service->id}/{$service->slug}", ['fullBase' => true]); ?>"><?= $service->name ?></a></h3>
+                                <p class="pera1">
+                                    <?= Text::truncate(
+                                        Text::wordWrap($service->content),
+                                        30,
+                                        [
+                                            'ellipsis' => '...',
+                                            'exact' => false
+                                        ]
+                                    ) ?>
+                                </p>
+                                <p class="pera2">
+                                    <?= Text::truncate(
+                                        Text::wordWrap($service->content),
+                                        90,
+                                        [
+                                            'ellipsis' => '...',
+                                            'exact' => false
+                                        ]
+                                    ) ?>
+                                </p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="services-caption">
-                        <h3><a href="services.html">Interior Design</a></h3>
-                        <p class="pera1">For each project we establish </p>
-                        <p class="pera2">For each project we establish relationships with partners who we know will help us. </p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 col-sm-10">
-                <div class="single-services mb-200">
-                    <div class="services-img">
-                        <img src="front-template/assets/img/gallery/services3.png" alt="">
-                    </div>
-                    <div class="services-caption">
-                        <h3><a href="services.html">Office Decoretion</a></h3>
-                        <p class="pera1">For each project we establish </p>
-                        <p class="pera2">For each project we establish relationships with partners who we know will help us. </p>
-                    </div>
-                </div>
+                <?php } ?>
             </div>
         </div>
     </div>
-</div>
-<!-- Services Ara End -->
+    <!-- Services Ara End -->
+<?php } ?>
+
 <!--? Gallery Area Start -->
 <div class="gallery-area">
     <div class="container-fluid p-0 fix">
@@ -185,7 +186,7 @@ use Cake\Utility\Text;
                     <div class="gallery-img" style="background-image: url(front-template/assets/img/gallery/gallery4.png);"></div>
                     <div class="thumb-content-box">
                         <div class="thumb-content">
-                            <h3><span>Intorior</span>Burj Khalifa</h3>
+                            <h3><span>Interior</span>Burj Khalifa</h3>
                             <a href="work.html"><i class="fas fa-angle-right"></i></a>
                         </div>
                     </div>
@@ -217,57 +218,39 @@ use Cake\Utility\Text;
     </div>
 </div>
 <!-- Gallery Area End -->
-<!-- Team Start -->
-<div class="team-area section-padding30">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="cl-xl-7 col-lg-8 col-md-10">
-                <!-- Section Tittle -->
-                <div class="section-tittle text-center mb-70">
-                    <span>Creative derector</span>
-                    <h2>Best Interitor Services</h2>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <!-- single Tem -->
-            <div class="col-xl-4 col-lg-4 col-md-6 col-sm-">
-                <div class="single-team mb-30">
-                    <div class="team-img">
-                        <img src="front-template/assets/img/gallery/team2.png" alt="">
-                    </div>
-                    <div class="team-caption">
-                        <h3><a href="#">Jhon Sunsa</a></h3>
-                        <span>Creative derector</span>
+<?php if ($specialists) { ?>
+    <!-- Team Start -->
+    <div class="team-area section-padding30">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="cl-xl-7 col-lg-8 col-md-10">
+                    <!-- Section Tittle -->
+                    <div class="section-tittle text-center mb-70">
+                        <span>Nosso Time</span>
+                        <h2>CONHEÇA NOSSO TIME</h2>
                     </div>
                 </div>
             </div>
-            <div class="col-xl-4 col-lg-4 col-md-6 col-sm-">
-                <div class="single-team mb-30">
-                    <div class="team-img">
-                        <img src="front-template/assets/img/gallery/team3.png" alt="">
+            <div class="row text-center">
+                <!-- single Tem -->
+                <?php foreach ($specialists as $specialist) { ?>
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 margin-zero-auto">
+                        <div class="single-team mb-30">
+                            <div class="team-img">
+                                <img src="<?= Images::getImage($specialist->user->avatar) ?>" alt="">
+                            </div>
+                            <div class="team-caption">
+                                <h3><?= $specialist->name ?></h3>
+                                <span><?= $specialist->specialists_category->name ?></span>
+                            </div>
+                        </div>
                     </div>
-                    <div class="team-caption">
-                        <h3><a href="#">Jhon Sunsa</a></h3>
-                        <span>Creative derector</span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-4 col-lg-4 col-md-6 col-sm-">
-                <div class="single-team mb-30">
-                    <div class="team-img">
-                        <img src="front-template/assets/img/gallery/team1.png" alt="">
-                    </div>
-                    <div class="team-caption">
-                        <h3><a href="#">Jhon Sunsa</a></h3>
-                        <span>Creative derector</span>
-                    </div>
-                </div>
+                <?php } ?>
             </div>
         </div>
     </div>
-</div>
-<!-- Team End -->
+    <!-- Team End -->
+<?php } ?>
 <!-- Testimonial Start -->
 <?php if ($testimonials) { ?>
     <div class="testimonial-area testimonial-padding">

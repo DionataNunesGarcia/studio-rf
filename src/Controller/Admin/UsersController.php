@@ -52,12 +52,12 @@ class UsersController extends AdminController
         parent::beforeFilter($event);
         // Configure the login action to not require authentication, preventing
         // the infinite redirect loop issue
-        $allowd = [
+        $allowed = [
             'login',
             'forgetPassword'
         ];
-        $this->Authentication->addUnauthenticatedActions($allowd);
-        $this->Security->setConfig('unlockedActions', $allowd);
+        $this->Authentication->addUnauthenticatedActions($allowed);
+        $this->Security->setConfig('unlockedActions', $allowed);
     }
 
     /**

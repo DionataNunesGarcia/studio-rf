@@ -80,3 +80,16 @@ $this->Form->unlockField('redirect');
 </div>
 <?= $this->Form->end() ?>
 <?= $this->element('admin/image-crop-modal') ?>
+<?php if ($entity->id) { ?>
+    <div class="box">
+        <?= $this->element('admin/box-title', ['title' => 'Arquivos']) ?>
+        <div class="box-body">
+            <?=
+            $this->element('admin/multi-upload', [
+                'foreignKey' => $entity->id,
+                'model' => 'BlogsFiles',
+            ]);
+            ?>
+        </div>
+    </div>
+<?php } ?>

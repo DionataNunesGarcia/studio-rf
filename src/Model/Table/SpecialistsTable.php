@@ -57,10 +57,10 @@ class SpecialistsTable extends Table
             'foreignKey' => 'user_id',
             'joinType' => 'INNER',
         ]);
-        $this->hasMany('Patients', [
-            'foreignKey' => 'specialist_id',
+        $this->belongsTo('SpecialistsCategories', [
+            'foreignKey' => 'specialist_category_id',
+            'joinType' => 'INNER',
         ]);
-
         $this->hasOne('Avatar', [
             'className' => 'Uploads',
             'foreignKey' => [
@@ -156,18 +156,6 @@ class SpecialistsTable extends Table
         if (!empty($data['cpf'])) {
             $data['cpf'] = ConvertCharacters::onlyNumbers($data['cpf']);
         }
-        if (!empty($data['start_service'])) {
-            $data['start_service'] = ConvertDates::stringToTime($data['start_service']);
-        }
-        if (!empty($data['end_service'])) {
-            $data['end_service'] = ConvertDates::stringToTime($data['end_service']);
-        }
-        if (!empty($data['start_break'])) {
-            $data['start_break'] = ConvertDates::stringToTime($data['start_break']);
-        }
-        if (!empty($data['end_break'])) {
-            $data['end_break'] = ConvertDates::stringToTime($data['end_break']);
-        }
     }
 
     /**
@@ -180,7 +168,8 @@ class SpecialistsTable extends Table
             return $this
                 ->get($id, [
                     'contain' => [
-                        "Users.Avatar"
+                        "Users.Avatar",
+                        "SpecialistsCategories",
                     ]
                 ]);
         }

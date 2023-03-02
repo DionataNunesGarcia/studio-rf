@@ -121,6 +121,12 @@
                             <?= __('Tipos de Especialistas') ?>
                         </a>
                     </li>
+                    <li>
+                        <a href="<?= $this->Url->build(['controller' => 'Specialists', 'action' => 'index'], ['fullBase' => true]); ?>" title="" data-placement="right">
+                            <i class="fa fa-circle-o"></i>
+                            <?= __('Especialistas') ?>
+                        </a>
+                    </li>
                 </ul>
             </li>
 

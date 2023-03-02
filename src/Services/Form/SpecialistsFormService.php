@@ -29,7 +29,8 @@ class SpecialistsFormService extends DefaultService
             ->find()
             ->where(self::getConditionsFront())
             ->contain([
-                'Avatar',
+                "Users.Avatar",
+                'SpecialistsCategories',
             ])
             ->orderDesc("{$this->getModel()}.created")
             ->group("{$this->getModel()}.id")

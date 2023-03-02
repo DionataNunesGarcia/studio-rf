@@ -100,7 +100,7 @@ function addThumbnail(entity){
 
     //image
     html += '<div class=" text-center file col-md-12">';
-    if (entity.extension == 'png' || entity.extension == 'jpg' || entity.extension == 'jpeg' || entity.extension == 'avif') {
+    if (entity.extension == 'png' || entity.extension == 'jpg' || entity.extension == 'jpeg' || entity.extension == 'avif' || entity.extension == 'webp') {
         html += '<a href="'+ file + '" data-fancybox="gallery" data-caption="'+ entity.alt + '">';
         html += '<img src="'+ file + '" class="img-thumbnail img-responsive"><br>';
         html += '</a>';
@@ -141,7 +141,9 @@ function listUploadFiles() {
     openLoad();
     $.ajax({
         url: multipleFileUploadsList,
-        type: 'GET',
+        cache: false,
+        type: 'POST',
+        dataType: 'JSON',
         beforeSend: function(xhr){
             xhr.setRequestHeader("X-CSRF-Token", _csrfToken);
         },

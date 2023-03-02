@@ -122,8 +122,8 @@ class UtilsController extends AdminController
         $this->RequestHandler->renderAs($this, 'json');
         $response = [];
         try {
-            $this->request->allowMethod(['get']);
-            $data = $this->request->getQuery();
+            $this->request->allowMethod(['POST']);
+            $data = $this->getRequest()->getData();
             $response['data'] = $this->_uploadsFormService->listFiles($data);
         } catch (\Exception $ex) {
             $this->response = $this->response->withStatus($ex->getCode());

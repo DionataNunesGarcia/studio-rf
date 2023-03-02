@@ -74,7 +74,7 @@ return static function (RouteBuilder $routes) {
             ]);
 
         $builder
-            ->connect('/servico/{id}', [
+            ->connect('/servico/{id}/{slug}', [
                 'controller' => 'Pages',
                 'action' => 'service'
             ], [

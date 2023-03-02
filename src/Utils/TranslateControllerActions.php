@@ -52,11 +52,11 @@ class TranslateControllerActions
         'LogsChange' => 'Logs de Alterações',
         'OurServices' => 'Nossos Serviços',
         'SystemParameters' => 'Parâmetros de Sistema',
-        'Patients' => 'Pacientes',
-        'Specialists' => 'Psicólogos',
         'Users' => 'Usuários',
         'Testimonials' => 'Depoimentos',
         'SpecialistsCategories' => 'Tipos de Especialistas',
+        'Specialists' => 'Especialistas',
+        'Clients' => 'Clientes',
     ];
 
     /**

@@ -21,6 +21,7 @@ use App\Model\Entity\Blog;
 use App\Services\Form\BlogsCategoriesFormService;
 use App\Services\Form\BlogsFormService;
 use App\Services\Form\OurServicesFormService;
+use App\Services\Form\SpecialistsFormService;
 use App\Services\Form\TagsFormService;
 use App\Services\Form\TestimonialsFormService;
 use App\Services\Form\TherapyBenefitsFormService;
@@ -62,14 +63,14 @@ class PagesController extends AppController
     private TestimonialsFormService $_testimonialsFormService;
 
     /**
+     * @var SpecialistsFormService $_specialistsFormService
+     */
+    private SpecialistsFormService $_specialistsFormService;
+
+    /**
      * @var ContactsManagerService $_contactsManagerService
      */
     private ContactsManagerService $_contactsManagerService;
-
-    /**
-     * @var TherapyBenefitsFormService $_benefitsFormService
-     */
-    private TherapyBenefitsFormService $_benefitsFormService;
 
     /**
      * @var TagsFormService $_tagsFormService
@@ -86,6 +87,7 @@ class PagesController extends AppController
         $this->_testimonialsFormService = new TestimonialsFormService($this);
         $this->_contactsManagerService = new ContactsManagerService($this);
         $this->_tagsFormService = new TagsFormService($this);
+        $this->_specialistsFormService = new SpecialistsFormService($this);
     }
 
     /**
@@ -149,11 +151,13 @@ class PagesController extends AppController
         $blogs = $this->_blogsFormService->getLatestPosts(2);
         $ourServices = $this->_ourServicesFormService->getList();
         $testimonials = $this->_testimonialsFormService->getListFront(10);
+        $specialists = $this->_specialistsFormService->getListFront();
 
         $this->set(compact(
             'blogs',
             'testimonials',
-            'ourServices'
+            'ourServices',
+            'specialists'
         ));
     }
 
@@ -170,6 +174,20 @@ class PagesController extends AppController
             ->getListFront();
 
         $this->set(compact('ourServices', 'testimonials'));
+    }
+
+    /**
+     * @param int $id
+     * @return Response|void|null
+     */
+    public function service(int $id)
+    {
+        $this->_ourServicesFormService->setId($id);
+        if (!$service = $this->_ourServicesFormService->getEntity()) {
+            $this->Flash->error(__('Conteúdo não existe ou não está mais disponível.'));
+            return $this->redirect('home');
+        }
+        $this->set(compact('service'));
     }
 
     public function contents($category = null)

@@ -1,4 +1,7 @@
 <?php
+
+use Cake\Routing\Router;
+
 $accept = !isset($accept) ? '*' : $accept;
 ?>
 <div class="gallery-multi-upload-files">
@@ -73,8 +76,10 @@ $accept = !isset($accept) ? '*' : $accept;
 <script>
     let multipleFileUploads = "<?= $this->Url->build(['controller' => 'Utils', 'action' => 'multipleFileUploads',])?>";
     let multipleFileUploadsList = "<?= $this->Url->build(['controller' => 'Utils', 'action' => 'multipleFileUploadsList',])?>";
-    let multipleFileUploadsDelete = "<?= $this->Url->build(['controller' => 'Utils', 'action' => 'multipleFileUploadsDelete',])?>";
+    if (typeof multipleFileUploadsDelete !== 'undefined') {
+        let multipleFileUploadsDelete = "<?= $this->Url->build(['controller' => 'Utils', 'action' => 'multipleFileUploadsDelete',])?>";
+    }
     let urlDownload = "<?= $this->Url->build(['controller' => 'Utils', 'action' => 'download',])?>";
-    let pathFiles = "<?= \Cake\Routing\Router::url('/', true) . 'Uploads/' ?>";
+    let pathFiles = "<?= Router::url('/', true) . 'Uploads/' ?>";
 </script>
 <?= $this->Html->script(['/js/admin/multi-uploads'], ['block' => 'custom']) ?>

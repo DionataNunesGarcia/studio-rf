@@ -58,6 +58,16 @@ class OurServicesTable extends Table
                 'Icon.model' => 'OurServices',
             ],
         ]);
+        $this->hasMany('Gallery', [
+            'className' => 'Uploads',
+            'foreignKey' => [
+                'foreign_key'
+            ],
+            'joinType' => 'LEFT',
+            'conditions' => [
+                'Gallery.model' => 'GalleryServices',
+            ],
+        ]);
 
         $this->addBehavior('RegisterLogChange');
     }
@@ -122,6 +132,7 @@ class OurServicesTable extends Table
                 ->get($id, [
                     'contain' => [
                         "Icon",
+                        "Gallery",
                     ]
                 ]);
         }

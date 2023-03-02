@@ -105,6 +105,7 @@ class AdminController extends AppController
             'updateEvent',
             'cropImageAjax',
             'consultationSave',
+            'multipleFileUploadsList',
         ];
     }
 

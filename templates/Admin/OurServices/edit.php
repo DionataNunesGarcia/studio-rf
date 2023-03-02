@@ -18,7 +18,7 @@ $this->Form->create($entity, ['url' => [
                 <?php
                 echo $this->element('admin/image-crop-upload', [
                     'upload' => $entity->icon,
-                    'label' => 'Icone',
+                    'label' => 'Capa',
                 ])
                 ?>
             </div>
@@ -40,3 +40,16 @@ $this->Form->create($entity, ['url' => [
 </div>
 <?= $this->Form->end() ?>
 <?= $this->element('admin/image-crop-modal') ?>
+<?php if ($entity->id) { ?>
+    <div class="box">
+        <?= $this->element('admin/box-title', ['title' => 'Arquivos']) ?>
+        <div class="box-body">
+            <?=
+            $this->element('admin/multi-upload', [
+                'foreignKey' => $entity->id,
+                'model' => 'GalleryServices',
+            ]);
+            ?>
+        </div>
+    </div>
+<?php } ?>

@@ -46,77 +46,20 @@ echo $this->Form->create($entity, ['url' => [
             ]);
             ?>
         </div>
+        <div class="form-group col-md-4">
+            <?=
+            $this->element('admin/select2', [
+                'controller' => 'SpecialistsCategories',
+                'name' => 'specialist_category_id',
+                'label' => __('Tipo de Especialista'),
+                'multiple' => false,
+                'required' => true,
+                'value' => $entity->specialist_category_id,
+            ])
+            ?>
+        </div>
         <div class="form-group col-md-12">
             <?= $this->Form->control('content', ['class' => 'form-control', 'label' => 'Conteúdo', 'type' => 'textarea']) ?>
-        </div>
-    </div>
-    <!--Configurações-->
-    <?= $this->element('admin/box-title', ['title' => 'Configurações']) ?>
-    <div class="box-body">
-        <div class="form-group col-md-9">
-            <?=
-            $this->Form->control('days_of_week', [
-                'type' => 'select',
-                'label' => __('Dias da Semana'),
-                'class' => 'select2-tags',
-                'required' => true,
-                'multiple' => true,
-                'options' => \App\Utils\Enum\DaysOfWeek::getArray()
-            ]);
-            ?>
-        </div>
-        <div class="form-group col-md-3">
-            <?=
-            $this->Form->control('consultation_duration', [
-                'label' => 'Duração da Consulta',
-                'type' => 'range',
-                'class' => 'change-label',
-                'min' => 10,
-                'step' => 10,
-                'max' => 240,
-            ]);
-            ?>
-            <span id="consultation-duration-label" class="label label-primary"><?= $entity->consultation_duration ?></span>
-        </div>
-        <div class="form-group col-md-3">
-            <?=
-            $this->Form->control('start_service', [
-                'label' => 'Início Atendimento',
-                'type' => 'select',
-                'value' => ConvertDates::timeToString($entity->start_service),
-                'options' => TimeEnum::getArrayThirtyMinutes()
-            ]);
-            ?>
-        </div>
-        <div class="form-group col-md-3">
-            <?=
-            $this->Form->control('end_service', [
-                'label' => 'Final Atendimento',
-                'type' => 'select',
-                'value' => ConvertDates::timeToString($entity->end_service),
-                'options' => TimeEnum::getArrayThirtyMinutes()
-            ]);
-            ?>
-        </div>
-        <div class="form-group col-md-3">
-            <?=
-            $this->Form->control('start_break', [
-                'label' => 'Início Intervalo',
-                'type' => 'select',
-                'value' => ConvertDates::timeToString($entity->start_break),
-                'options' => TimeEnum::getArrayThirtyMinutes()
-            ]);
-            ?>
-        </div>
-        <div class="form-group col-md-3">
-            <?=
-            $this->Form->control('end_break', [
-                'label' => 'Final Intervalo',
-                'type' => 'select',
-                'value' => ConvertDates::timeToString($entity->end_break),
-                'options' => TimeEnum::getArrayThirtyMinutes()
-            ]);
-            ?>
         </div>
     </div>
     <!--User-->
@@ -127,13 +70,4 @@ echo $this->Form->create($entity, ['url' => [
     </div>
 </div>
 <?= $this->Form->end() ?>
-<script>
-    $(document).ready(function(){
-       $('body')
-           .on('change, click', '.change-label',function (event) {
-               event.preventDefault();
-               let _this = $(this);
-               $('#' + _this.attr('id') + '-label').html(_this.val());
-           });
-    });
-</script>
+<?= $this->element('admin/image-crop-modal') ?>

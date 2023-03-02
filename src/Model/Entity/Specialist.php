@@ -15,12 +15,7 @@ use Cake\ORM\Entity;
  * @property string|null $phone
  * @property string|null $cell_phone
  * @property int $user_id
- * @property int $consultation_duration
- * @property \Cake\I18n\FrozenTime|null $start_service
- * @property \Cake\I18n\FrozenTime|null $end_service
- * @property \Cake\I18n\FrozenTime|null $start_break
- * @property \Cake\I18n\FrozenTime|null $end_break
- * @property string $days_of_week
+ * @property int $specialist_category_id
  * @property int $status
  * @property string|null $content
  * @property \Cake\I18n\FrozenTime|null $created
@@ -47,12 +42,7 @@ class Specialist extends Entity
         'phone' => true,
         'cell_phone' => true,
         'user_id' => true,
-        'consultation_duration' => true,
-        'start_service' => true,
-        'end_service' => true,
-        'start_break' => true,
-        'end_break' => true,
-        'days_of_week' => true,
+        'specialist_category_id' => true,
         'status' => true,
         'content' => true,
         'created' => true,
