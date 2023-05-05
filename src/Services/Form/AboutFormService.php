@@ -16,4 +16,12 @@ class AboutFormService extends DefaultService
         $this->setModel('About');
         parent::__construct($controller);
     }
+
+    public function getSlidesHome()
+    {
+        return self::getTableLocator('SlidesHome')
+            ->find()
+            ->orderDesc('created')
+            ->toArray();
+    }
 }

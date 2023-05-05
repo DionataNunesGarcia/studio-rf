@@ -6,36 +6,31 @@ use Cake\Utility\Text;
 <div class="slider-area">
     <div class="slider-active dot-style">
         <!-- Single Slider -->
-        <div class="single-slider slider-height hero-overly d-flex align-items-center">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xl-6 col-lg-6">
-                        <div class="hero__caption">
-                            <span data-animation="fadeInLeft" data-delay=".4s">Welcome to Intorior</span>
-                            <h1 data-animation="fadeInLeft" data-delay=".6s">Modern Interior & Design</h1>
+        <?php foreach ($this->About->slidesHome() as $slide) { ?>
+            <div class="single-slider slider-height hero-overly d-flex align-items-center">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-6 col-lg-6">
+                            <div class="hero__caption">
+                                <span data-animation="fadeInLeft" data-delay=".4s">
+                                    <?= $slide->subtitle ?>
+                                </span>
+                                <h1 data-animation="fadeInLeft" data-delay=".6s">
+                                    <?= $slide->title ?>
+                                </h1>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <!-- Single Slider -->
-        <div class="single-slider slider-height hero-overly d-flex align-items-center">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xl-6 col-lg-6">
-                        <div class="hero__caption">
-                            <span data-animation="fadeInLeft" data-delay=".4s">Welcome to Intorior</span>
-                            <h1 data-animation="fadeInLeft" data-delay=".6s">Modern Interior & Design</h1>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <?php } ?>
     </div>
-    <!-- Video icon -->
-    <div class="video-icon">
-        <a class="popup-video btn-icon" href="https://www.youtube.com/watch?v=1aP-TXUpNoU"><i class="fas fa-play"></i></a>
-    </div>
+    <?php if ($this->About->get()->video_home) { ?>
+        <!-- Video icon -->
+        <div class="video-icon">
+            <a class="popup-video btn-icon" href="<?= $this->About->get()->video_home ?>"><i class="fas fa-play"></i></a>
+        </div>
+    <?php } ?>
 </div>
 <!-- slider Area End-->
 <!--? our info Start -->

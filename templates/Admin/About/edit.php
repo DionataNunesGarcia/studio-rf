@@ -5,7 +5,8 @@ $this->Form->create($entity, [
         $entity->id,
         'fullBase' => true,
     ],
-    'enctype' => 'multipart/form-data'
+    'enctype' => 'multipart/form-data',
+    'id' => 'form-about',
 ]);
 ?>
 <div class="box">
@@ -55,6 +56,9 @@ $this->Form->create($entity, [
                     <?= $this->Form->control('github'); ?>
                 </div>
                 <div class="form-group col-md-4">
+                    <?= $this->Form->control('video_home'); ?>
+                </div>
+                <div class="form-group col-md-4">
                     <?php
                     echo $this->element('admin/image-upload', [
                         'upload' => $entity->cover,
@@ -79,6 +83,24 @@ $this->Form->create($entity, [
         </div>
         <div class="form-group col-md-12">
             <?= $this->Form->control('values_about', ['class' => 'ckeditor', 'label' => 'Valores', 'type' => 'textarea']) ?>
+        </div>
+    </div>
+    <?= $this->element('admin/box-title', ['title' => 'Slides Home']) ?>
+    <div class="box-body">
+        <div class="padding-side-15 margin-bottom-10">
+            <button class="btn btn-success add-slide">
+                <i class="fa fa-plus"></i>
+                Adicionar
+            </button>
+        </div>
+        <div class="select-container ">
+            <?= $this->element('admin/slide_home', ['count' => 0]) ?>
+            <?php
+            foreach ($slides as $count => $slide) {
+                $count++;
+                echo $this->element('admin/slide_home', ['count' => $count, 'slide' => $slide]);
+            }
+            ?>
         </div>
     </div>
     <div class="box-footer">

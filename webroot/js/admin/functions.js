@@ -295,3 +295,48 @@ function changeSelect2(field, idSearch) {
         });
     }
 }
+
+function removeDivParent(click, parent) {
+    var confirma = confirm('Deseja realmente excluir esse registro?');
+    if (!confirma) {
+        return false;
+    }
+    $(click).parents(parent).remove();
+}
+
+//Clone DIVS
+function cloneSlide(focus = false) {
+    let count = 0;
+    $('.div-clone').each(function () {
+        if ($(this).data('count') > count) {
+            count = $(this).data('count');
+        }
+    });
+
+    count++;
+    //busca a div que está vázia e oculta e clona a mesma
+    let divClone = $(".div-clone")
+        .clone()
+        .first()
+        .removeClass('hide')
+        .attr('data-count', count);
+
+    divClone.find('.remove-slide').removeClass('hide');
+    if (count == '1') {
+        //remove a classe que deixa oculto o botão de excluir
+        divClone.find('.remove-slide').addClass('hide');
+    }
+
+    //adiciona campo requerido nos dois inputs
+    divClone.find('.slide-title, .slide-subtitle').attr('required', true).attr('disabled', false);
+
+    //adiciona classe requerido nas labels para ficar o * vermelho
+    divClone.find("label").addClass('required');
+
+    //Mostra a div clonada abaixo das existentes
+    $(".select-container").append(divClone);
+
+    if (focus) {
+        $(".div-clone[data-count=" + count + "] .focus-slide").attr("tabindex", -1).focus();
+    }
+}

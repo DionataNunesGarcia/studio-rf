@@ -3706,7 +3706,7 @@ hero-btn {
 
 /* line 211, ../../../sponDon TI/Running Project/263.InteriorDesign_HTML/HTML/assets/scss/_h1-hero.scss */
 .video-icon a {
-  background: #ff1313;
+  background: #16468f;
   color: #fff;
   width: 80px;
   height: 80px;
@@ -3751,7 +3751,7 @@ hero-btn {
   bottom: -2px;
   right: -2px;
   border-radius: inherit;
-  border: 1px solid #ff1313;
+  border: 1px solid #16468f;
   -webkit-animation: btnIconRipple 2s cubic-bezier(0.23, 1, 0.32, 1) both infinite;
   animation: btnIconRipple 2s cubic-bezier(0.23, 1, 0.32, 1) both infinite;
 }
@@ -4060,7 +4060,7 @@ hero-btn {
 
 /* line 1, ../../../sponDon TI/Running Project/263.InteriorDesign_HTML/HTML/assets/scss/_wantTowork.scss */
 .wantToWork-area {
-  background: #ff0000;
+  background: #1f2b7b;
 }
 
 /* line 4, ../../../sponDon TI/Running Project/263.InteriorDesign_HTML/HTML/assets/scss/_wantTowork.scss */
@@ -4639,7 +4639,7 @@ hero-btn {
 
 /* line 69, ../../../sponDon TI/Running Project/263.InteriorDesign_HTML/HTML/assets/scss/_footer.scss */
 .footer-area .footer-top .single-footer-caption .footer-cap span {
-  color: #ff1313;
+  color: #ffffff;
   font-size: 16px;
   font-weight: 300;
   margin-bottom: 10px;
@@ -4669,12 +4669,12 @@ hero-btn {
 
 /* line 95, ../../../sponDon TI/Running Project/263.InteriorDesign_HTML/HTML/assets/scss/_footer.scss */
 .footer-area .footer-bottom .footer-copy-right p i {
-  color: #ff1313;
+  color: #ffffff;
 }
 
 /* line 98, ../../../sponDon TI/Running Project/263.InteriorDesign_HTML/HTML/assets/scss/_footer.scss */
 .footer-area .footer-bottom .footer-copy-right p a {
-  color: #ff1313;
+  color: #ffffff;
 }
 
 /* line 110, ../../../sponDon TI/Running Project/263.InteriorDesign_HTML/HTML/assets/scss/_footer.scss */

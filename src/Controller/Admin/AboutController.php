@@ -45,6 +45,7 @@ class AboutController extends AdminController
     public function edit()
     {
         $entity = $this->_formService->getEntity();
+        $slides = $this->_formService->getSlidesHome();
         if ($this->getRequest()->is(['patch', 'post', 'put'])) {
             try {
                 $response = $this->_managerService->saveEntity();
@@ -55,7 +56,7 @@ class AboutController extends AdminController
                 $this->Flash->error($ex->getMessage());
             }
         }
-        $this->set(compact('entity'));
+        $this->set(compact('entity', 'slides'));
     }
 
     /**

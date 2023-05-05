@@ -25,6 +25,7 @@ use App\Services\Form\SpecialistsFormService;
 use App\Services\Form\TagsFormService;
 use App\Services\Form\TestimonialsFormService;
 use App\Services\Form\TherapyBenefitsFormService;
+use App\Services\Form\UploadsFormService;
 use App\Services\Manager\ContactsManagerService;
 use Cake\Core\Configure;
 use Cake\Event\EventInterface;
@@ -77,10 +78,14 @@ class PagesController extends AppController
      */
     private TagsFormService $_tagsFormService;
 
+    /**
+     * @var UploadsFormService $_uploadsFormService
+     */
+    private UploadsFormService $_uploadsFormService;
+
     public function initialize(): void
     {
         parent::initialize();
-
         $this->_blogsFormService = new BlogsFormService($this);
         $this->_blogsCategoriesFormService = new BlogsCategoriesFormService($this);
         $this->_ourServicesFormService = new OurServicesFormService($this);
@@ -88,6 +93,7 @@ class PagesController extends AppController
         $this->_contactsManagerService = new ContactsManagerService($this);
         $this->_tagsFormService = new TagsFormService($this);
         $this->_specialistsFormService = new SpecialistsFormService($this);
+        $this->_uploadsFormService = new UploadsFormService($this);
     }
 
     /**

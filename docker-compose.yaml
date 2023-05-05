@@ -30,6 +30,8 @@ services:
       MYSQL_USER: '${DB_USERNAME}'
       MYSQL_PASSWORD: '${DB_PASSWORD}'
       MYSQL_ROOT_HOST: '%'
+    command:
+      --sql_mode=STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION
     volumes:
       - 'studio_rf:/var/lib/mysql'
       - ./docker/config/database/_dumps:/_dumps:rw,cached

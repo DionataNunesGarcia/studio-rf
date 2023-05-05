@@ -34,4 +34,16 @@ class AboutHelper extends Helper {
             ])
             ->toArray();
     }
+
+    /**
+     * @return array
+     */
+    public function slidesHome() :array
+    {
+        return TableRegistry::getTableLocator()
+            ->get('SlidesHome')
+            ->find()
+            ->orderAsc('created')
+            ->toArray();
+    }
 }

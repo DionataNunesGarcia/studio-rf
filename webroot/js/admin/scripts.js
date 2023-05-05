@@ -182,6 +182,15 @@ $(document).ready(function () {
     if($('form#nomenclaturas [name=volume]').length){
         tipoCobertura($('form#nomenclaturas [name=volume]').val());
     }
+
+    $(".add-slide").on("click", function (e) {
+        e.preventDefault();
+        cloneSlide(true);
+    });
+
+    if ($("form#form-about").length && $("form#form-about .div-clone").length === 1) {
+        cloneSlide();
+    }
 });
 
 $(window).on('load', function () {

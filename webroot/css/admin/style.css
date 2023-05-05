@@ -314,3 +314,22 @@ table .checkbox-select {
 .text-center {
     text-align: center !important;
 }
+.margin-bottom-10 {
+    margin-bottom: 10px !important;
+}
+.margin-bottom-20 {
+    margin-bottom: 20px !important;
+}
+.margin-top-10 {
+    margin-top: 10px !important;
+}
+.margin-top-15 {
+    margin-top: 15px !important;
+}
+.margin-top-25 {
+    margin-top: 25px !important;
+}
+.padding-side-15{
+    padding-left: 15px;
+    padding-right: 15px;
+}

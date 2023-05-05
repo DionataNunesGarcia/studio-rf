@@ -17,6 +17,7 @@ use Cake\ORM\Entity;
  * @property string|null $instagram
  * @property string|null $linkedin
  * @property string|null $github
+ * @property string|null $video_home
  * @property string $about
  * @property string $vision
  * @property string $mission
@@ -44,6 +45,7 @@ class About extends Entity
         'instagram' => true,
         'linkedin' => true,
         'github' => true,
+        'video_home' => true,
         'about' => true,
         'vision' => true,
         'mission' => true,
