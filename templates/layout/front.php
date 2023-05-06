@@ -113,6 +113,7 @@ $url = Router::url('/', true);
         <!-- Jquery Plugins, main Jquery -->
         <?= $this->Html->script('../front-template/assets/js/plugins.js') ?>
         <?= $this->Html->script('../front-template/assets/js/main.js') ?>
+        <?= $this->Html->script('front/instafeed.min.js') ?>
         <?= $this->Html->script('front/front-scripts.js') ?>
 
         <?= $this->fetch('script') ?>

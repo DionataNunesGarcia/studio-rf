@@ -44,9 +44,6 @@
                             <?= __('Nome') ?>
                         </th>
                         <th class="text-center">
-                            <?= __('Especialistas') ?>
-                        </th>
-                        <th class="text-center">
                             <?= __('Mostrar no Site') ?>
                         </th>
                         <th>
@@ -95,10 +92,6 @@
             },
             {
                 data: 'name'
-            },
-            {
-                data: 'specialists',
-                className: 'text-center',
             },
             {
                 data: 'show_website',

@@ -72,3 +72,16 @@
 .professional-services {
     height: 500px;
 }
+.testimonial-area .testimonial-caption .testimonial-top-cap img {
+    max-height: 180px;
+}
+.footer-area .footer-top .single-footer-caption .footer-number h4 {
+    color: #ffffff;
+}
+.home-blog-area {
+    background: #11141b;
+}
+.section-padding30 {
+    padding-top: 95px;
+    padding-bottom: 100px;
+}
