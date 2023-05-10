@@ -85,6 +85,7 @@ class BlogsFormService extends DefaultService
             ->contain([
                 'BlogsCategories',
                 'Cover',
+                'Users',
             ])
             ->limit($limit)
             ->orderDesc('Blogs.created')

@@ -98,19 +98,19 @@ class BlogsTable extends Table
     {
         $validator
             ->scalar('title')
-            ->maxLength('title', 60)
+            ->maxLength('title', 255)
             ->requirePresence('title', 'create')
             ->notEmptyString('title');
 
         $validator
             ->scalar('subtitle')
-            ->maxLength('subtitle', 60)
+            ->maxLength('subtitle', 255)
             ->requirePresence('subtitle', 'create')
             ->notEmptyString('subtitle');
 
         $validator
             ->scalar('slug')
-            ->maxLength('slug', 60)
+            ->maxLength('slug', 255)
             ->requirePresence('slug', 'create')
             ->notEmptyString('slug');
 
@@ -121,13 +121,13 @@ class BlogsTable extends Table
 
         $validator
             ->scalar('user_id')
-            ->maxLength('user_id', 60)
+            ->maxLength('user_id', 11)
             ->requirePresence('user_id', 'create')
             ->notEmptyString('user_id');
 
         $validator
             ->scalar('blog_category_id')
-            ->maxLength('blog_category_id', 60)
+            ->maxLength('blog_category_id', 11)
             ->requirePresence('blog_category_id', 'create')
             ->notEmptyString('blog_category_id');
 

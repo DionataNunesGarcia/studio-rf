@@ -154,7 +154,7 @@ class PagesController extends AppController
      */
     public function home()
     {
-        $blogs = $this->_blogsFormService->getLatestPosts(2);
+        $blogs = $this->_blogsFormService->getLatestPosts(6);
         $ourServices = $this->_ourServicesFormService->getList();
         $testimonials = $this->_testimonialsFormService->getListFront(10);
         $specialists = $this->_specialistsFormService->getListFront();

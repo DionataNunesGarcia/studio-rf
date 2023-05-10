@@ -39,7 +39,9 @@
     background: #0c0f16;
 }
 .home-blog-area .home-blog-single .blog-img-cap .blog-img img {
-    max-height: 200px;
+    max-height: 500px;
+    min-height: 200px;
+    height: auto !important;
 }
 
 .header-area .menu-wrapper .main-menu ul li > a {
@@ -84,4 +86,17 @@
 .section-padding30 {
     padding-top: 95px;
     padding-bottom: 100px;
+}
+.home-blog-area .home-blog-single .blog-img-cap .blog-cap {
+    background: #fff;
+    padding: 10px 25px 30px 10px;
+    min-height: 210px;
+}
+.blog-cap h1,
+.blog-cap h2,
+.blog-cap h3,
+.blog-cap h4,
+.blog-cap h5,
+.blog-cap h6 {
+    color: #161616 !important;
 }
