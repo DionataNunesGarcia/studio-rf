@@ -7,7 +7,7 @@
                 <div class="cl-xl-7 col-lg-8 col-md-10">
                     <!-- Section Tittle -->
                     <div class="section-tittle text-center mb-70">
-                        <span>Nosso Time</span>
+<!--                        <span>Nosso Time</span>-->
                         <h2>CONHEÇA NOSSO TIME</h2>
                     </div>
                 </div>

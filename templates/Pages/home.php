@@ -120,14 +120,25 @@ use Cake\Utility\Text;
             <div class="col-lg-8">
                 <!-- Section Tittle -->
                 <div class="section-tittle profession-details">
-                    <span>Our Professional Services</span>
-                    <h2>We will create modern and first class intorior.</h2>
-                    <p>Aorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore.</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.</p>
+                    <h2>Quem Nós Somos</h2>
+                    <p>
+                        <?=
+                        Text::truncate(
+                            Text::wordWrap($this->About->get()->about),
+                            600,
+                            [
+                                'ellipsis' => '...',
+                                'exact' => false
+                            ]
+                        );
+                        ?>
+                    </p>
                 </div>
             </div>
             <div class="col-lg-4 col-md-6">
-                <a href="about.html" class="btn btn3">Discover More About Ous</a>
+                <a href="<?= $this->Url->build("/sobre", ['fullBase' => true]); ?>" class="btn btn3">
+                    Descubra mais sobre nós
+                </a>
             </div>
         </div>
     </div>

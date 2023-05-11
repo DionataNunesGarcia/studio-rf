@@ -8,39 +8,37 @@ $img = $blog->cover
 
 $url = $this->Url->build("/conteudo/{$blog->id}/{$blog->slug}", ['fullBase' => true]);
 ?>
-
 <div class="col-xl-4 col-lg-4 col-md-4">
     <div class="home-blog-single mb-30">
         <div class="blog-img-cap">
             <div class="blog-img">
-                <img src="<?= $img ?>"= alt="">
-            </div>
-            <div class="blog-cap">
                 <a href="<?= $url; ?>">
-                    <h3>
-                        <?= h($blog->title) ?>
-                    </h3>
-                    <h4>
-                        <?=
-                        Text::truncate(
-                            Text::wordWrap($blog->subtitle),
-                            45,
-                            [
-                                'ellipsis' => '...',
-                                'exact' => false
-                            ]
-                        );
-                        ?>
-                    </h4>
+                    <img src="<?= $img ?>"= alt="">
                 </a>
-                <a href="<?= $url; ?>" class="more-btn">Leia Mais</a>
-                <br/>
-                <span class="float-left">
-                    <?= h($blog->created->i18nFormat('dd/MM/yyyy HH:mm')) ?>
-                </span>
-                <span class="float-right">
-                <i class="fa fa-user"></i> <?= h($blog->user->name) ?>
-                </span>
+            </div>
+            <ul>
+                <li class="black-bg"><?= h($blog->created->i18nFormat('dd/MM/yyyy HH:mm')) ?></li>
+                <li><i class="fa fa-user"></i> <?= h($blog->user->name) ?></li>
+            </ul>
+            <div class="blog-cap">
+                <h3>
+                    <a href="<?= $url; ?>">
+                        <?= h($blog->title) ?>
+                    </a>
+                </h3>
+                <h4>
+                    <?=
+                    Text::truncate(
+                        Text::wordWrap($blog->subtitle),
+                        100,
+                        [
+                            'ellipsis' => '...',
+                            'exact' => false
+                        ]
+                    );
+                    ?>
+                </h4>
+                <a href="<?= $url; ?>">Leia Mais</a>
             </div>
         </div>
     </div>

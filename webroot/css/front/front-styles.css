@@ -89,8 +89,8 @@
 }
 .home-blog-area .home-blog-single .blog-img-cap .blog-cap {
     background: #fff;
-    padding: 10px 25px 30px 10px;
-    min-height: 210px;
+    padding: 20px;
+    min-height: 100px;
 }
 .blog-cap h1,
 .blog-cap h2,
@@ -99,4 +99,33 @@
 .blog-cap h5,
 .blog-cap h6 {
     color: #161616 !important;
+}
+.home-blog-area .home-blog-single .blog-img-cap ul li.black-bg {
+    padding: 10px 10px 10px 20px;
+    font-size: 16px;
+    margin-right: 20px;
+}
+.home-blog-area .home-blog-single .blog-img-cap .blog-cap h3 a:hover {
+    color: #11141b;
+}
+.home-blog-area .home-blog-single .blog-img-cap .blog-cap h3 a{
+    font-size: 20px;
+}
+.home-blog-area .home-blog-single .blog-img-cap .blog-cap h4 {
+    font-size: 16px;
+}
+.single_sidebar_widget .media.post_item img{
+    max-height: 100px;
+}
+.boxed-btn:hover, .blog_right_sidebar .search_widget .input-group button  {
+    background: #16468f;
+    color: #fff !important;
+    border: 1px solid #16468f;
+}
+.boxed-btn, .btn3:hover {
+    color: #16468f !important;
+    border: 1px solid #16468f;
+}
+.slider-area2 .hero-cap h2 {
+    font-size: 50px;
 }

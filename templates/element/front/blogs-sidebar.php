@@ -1,84 +1,78 @@
-<div class="col-lg-4" data-aos="fade-up" data-aos-delay="400">
+<div class="blog_right_sidebar">
+    <aside class="single_sidebar_widget search_widget">
+        <?= $this->Form->create(null, ['type' => 'get', 'url' => ['action' => 'contents', 'fullBase' => true,]]); ?>
+            <div class="form-group">
+                <div class="input-group mb-3">
+                    <input
+                        type="text"
+                        name="search"
+                        class="form-control"
+                        placeholder='Pesquisar Conteúdo'
+                        value="<?= $this->getRequest()->getQuery('search') ?>"
+                        onfocus="this.placeholder = ''"
+                        onblur="this.placeholder = 'Pesquisar Conteúdo'"
+                    >
+                    <div class="input-group-append">
+                        <button class="btns" type="button"><i class="ti-search"></i></button>
+                    </div>
+                </div>
+            </div>
+            <button class="button rounded-0 primary-bg text-white w-100 btn_1 boxed-btn" type="submit">Pesquisar</button>
+        <?= $this->Form->end(); ?>
+    </aside>
 
-    <div class="sidebar ps-lg-4">
-
-        <div class="sidebar-item search-form">
-            <h3 class="sidebar-title">Pesquisar</h3>
-            <?= $this->Form->create(null, ['type' => 'get', 'class' => 'mt-3']); ?>
-                <?= $this->Form->control('search', ['label' => false, 'value' => $this->request->getQuery('search')]); ?>
-                <?=
-                $this->Form->button('<i class="bi bi-search"></i>', [
-                    'class' => 'btn btn-primary',
-                    'escapeTitle' => FALSE
-                ]);
-                ?>
-            <?= $this->Form->end(); ?>
-        </div>
-        <!-- End sidebar search formn-->
-
-        <div class="sidebar-item categories">
-            <h3 class="sidebar-title">Conteúdos</h3>
-            <ul class="mt-3">
-                <?php foreach ($categories as $category) { ?>
+    <aside class="single_sidebar_widget post_category_widget">
+        <h4 class="widget_title" style="color: #2d2d2d;">
+            Category
+        </h4>
+        <ul class="list cat-list">
+            <?php foreach ($categories as $category) { ?>
+                <li>
+                    <a href="<?= $this->Url->build("/conteudos/{$category->slug}", ['fullBase' => true]); ?>">
+                        <?= $category->name ?>
+                        <span>
+                            (<?= count($category->blogs) ?>)
+                        </span>
+                    </a>
+                </li>
+            <?php } ?>
+        </ul>
+    </aside>
+    <aside class="single_sidebar_widget popular_post_widget">
+        <h3 class="widget_title" style="color: #2d2d2d;">Postagens Recentes</h3>
+        <?php
+        /** @var \App\Model\Entity\Blog $latestBlog */
+        foreach ($latestBlogs as $latestBlog) {
+            $img = $latestBlog->cover
+                ? "/../Uploads/{$latestBlog->cover->filename}"
+                : '/img/blog-default.png';
+            ?>
+            <div class="media post_item">
+                <img src="<?= $img ?>" alt="<?= $latestBlog->title ?>">
+                <div class="media-body">
+                    <a href="<?= $this->Url->build("/conteudo/{$latestBlog->id}/{$latestBlog->slug}", ['fullBase' => true]); ?>">
+                        <h3 style="color: #2d2d2d;">
+                            <?= $latestBlog->title ?>
+                        </h3>
+                    </a>
+                    <p><?= $latestBlog->created->i18nFormat('dd/MM/yyyy HH:mm') ?></p>
+                </div>
+            </div>
+            <!-- End recent post item-->
+        <?php } ?>
+    </aside>
+    <?php if (isset($tags) && !empty($tags)) { ?>
+        <aside class="single_sidebar_widget tag_cloud_widget">
+            <h4 class="widget_title" style="color: #2d2d2d;">Tag</h4>
+            <ul class="list">
+                <?php foreach ($tags as $tag) { ?>
                     <li>
-                        <a href="<?= $this->Url->build("/conteudos/{$category->slug}", ['fullBase' => true]); ?>">
-                            <?= $category->name ?>
-                            <span>
-                                (<?= count($category->blogs) ?>)
-                            </span>
+                        <a href="<?= $this->Url->build(['_name' => 'contents', '?' => ['tag' => $tag->slug]], ['fullBase' => true]); ?>">
+                            <?= h($tag->name) ?>
                         </a>
                     </li>
                 <?php } ?>
             </ul>
-        </div><!-- End sidebar categories-->
-
-        <div class="sidebar-item recent-posts">
-            <h3 class="sidebar-title">Conteúdos Recentes</h3>
-
-            <div class="mt-3">
-                <?php
-                /** @var \App\Model\Entity\Blog $latestBlog */
-                foreach ($latestBlogs as $latestBlog) {
-                    $img = $latestBlog->cover
-                        ? "/../Uploads/{$latestBlog->cover->filename}"
-                        : '/img/blog-default.png';
-                    ?>
-                    <div class="post-item mt-3">
-                        <img src="<?= $img ?>" alt="" class="flex-shrink-0">
-                        <div>
-                            <h4>
-                                <a href="<?= $this->Url->build("/conteudo/{$latestBlog->id}/{$latestBlog->slug}", ['fullBase' => true]); ?>">
-                                    <?= $latestBlog->title ?>
-                                </a>
-                            </h4>
-                            <time datetime="<?= $latestBlog->created ?>">
-                                <?= $latestBlog->created->i18nFormat('dd/MM/yyyy HH:mm') ?>
-                            </time>
-                        </div>
-                    </div>
-                    <!-- End recent post item-->
-                <?php } ?>
-            </div>
-        </div>
-        <!-- End sidebar recent posts-->
-
-        <?php if (isset($tags) && !empty($tags)) { ?>
-            <div class="sidebar-item tags">
-                <h3 class="sidebar-title">Tags</h3>
-                <ul class="mt-3">
-
-                    <?php foreach ($tags as $tag) { ?>
-                        <li>
-                            <a href="<?= $this->Url->build(['_name' => 'contents', '?' => ['tag' => $tag->slug]], ['fullBase' => true]); ?>">
-                                <?= h($tag->name) ?>
-                            </a>
-                        </li>
-                    <?php } ?>
-                </ul>
-            </div>
-        <?php } ?>
-        <!-- End sidebar tags-->
-
-    </div><!-- End Blog Sidebar -->
-
+        </aside>
+    <?php } ?>
 </div>
