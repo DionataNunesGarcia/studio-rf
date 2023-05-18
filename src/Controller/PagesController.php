@@ -154,7 +154,8 @@ class PagesController extends AppController
      */
     public function home()
     {
-        $blogs = $this->_blogsFormService->getLatestPosts(6);
+        $blogs = $this->_blogsFormService->getLatestPosts(6, NULL, 'projetos');
+        $projects = $this->_blogsFormService->getOnlyCategory('projetos', 6);
         $ourServices = $this->_ourServicesFormService->getList();
         $testimonials = $this->_testimonialsFormService->getListFront(10);
         $specialists = $this->_specialistsFormService->getListFront();
@@ -163,12 +164,19 @@ class PagesController extends AppController
             'blogs',
             'testimonials',
             'ourServices',
+            'projects',
             'specialists'
         ));
     }
 
     public function about()
     {
+        $testimonials = $this->_testimonialsFormService->getListFront(10);
+        $specialists = $this->_specialistsFormService->getListFront();
+        $this->set(compact(
+            'testimonials',
+            'specialists'
+        ));
     }
 
     public function services()
@@ -196,29 +204,46 @@ class PagesController extends AppController
         $this->set(compact('service'));
     }
 
-    public function contents($category = null)
+    public function contents($categorySlug = null)
     {
         $query = $this->_blogsFormService
-            ->getListPaginate($category);
+            ->getListPaginate($categorySlug);
 
         $this->paginate = [
-            'limit' => 9,
+            'limit' => 10
         ];
         $blogs = $this->paginate(
             $query
         );
 
         $latestBlogs = $this->_blogsFormService->getLatestPosts(5);
+        $category = $this->_blogsCategoriesFormService->getEntityBySlug($categorySlug);
         $tags = $this->_tagsFormService->getList();
 
         $this->set(compact(
             'blogs',
             'latestBlogs',
+            'category',
             'tags'
         ));
     }
 
     public function content($id = null, $slug = null)
+    {
+        $this->_blogsFormService->setId(intval($id));
+        $blog = $this->_blogsFormService->getEntity();
+
+        $latestBlogs = $this->_blogsFormService->getLatestPosts(5, intval($id));
+        $tags = $this->_tagsFormService->getList();
+
+        $this->set(compact(
+            'blog',
+            'latestBlogs',
+            'tags'
+        ));
+    }
+
+    public function project($id = null, $slug = null)
     {
         $this->_blogsFormService->setId(intval($id));
         $blog = $this->_blogsFormService->getEntity();

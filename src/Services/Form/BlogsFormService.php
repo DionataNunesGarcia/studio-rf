@@ -71,14 +71,40 @@ class BlogsFormService extends DefaultService
     /**
      * @param int $limit
      * @param int|null $ignoreId
+     * @param string|NULL $ignoreCategory
      * @return array
      */
-    public function getLatestPosts(int $limit = 4, ?int $ignoreId = null) :array
+    public function getLatestPosts(int $limit = 4, ?int $ignoreId = NULL, string $ignoreCategory = NULL) :array
     {
         $conditions = self::getConditionsFront();
         if ($ignoreId) {
             $conditions['Blogs.id !='] = $ignoreId;
         }
+        if ($ignoreCategory) {
+            $conditions['BlogsCategories.slug !='] = $ignoreCategory;
+        }
+        return $this->getByConditions($conditions, $limit);
+    }
+
+    /**
+     * @param int $limit
+     * @param string $category
+     * @return array
+     */
+    public function getOnlyCategory(string $category, int $limit = 4) :array
+    {
+        $conditions = self::getConditionsFront();
+        $conditions['BlogsCategories.slug !='] = $category;
+        return $this->getByConditions($conditions, $limit);
+    }
+
+    /**
+     * @param array $conditions
+     * @param int $limit
+     * @return array
+     */
+    public function getByConditions(array $conditions, int $limit = 4) :array
+    {
         return $this->__table
             ->find()
             ->where($conditions)
@@ -105,6 +131,7 @@ class BlogsFormService extends DefaultService
                 'BlogsCategories',
                 'Cover',
                 'Tags',
+                'Users',
             ]);
         $conditions = self::getConditionsFront();
         if ($this->_request->getQuery('search')) {

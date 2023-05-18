@@ -118,6 +118,21 @@ class DefaultService
     }
 
     /**
+     * @param string $slug
+     * @return Entity
+     */
+    public function getEntityBySlug(?string $slug) :?Entity
+    {
+        if (!$slug) {
+            return NULL;
+        }
+        return $this->__table
+            ->find()
+            ->where(['slug' => $slug])
+            ->first();
+    }
+
+    /**
      * @return array
      */
     public function getAutocomplete() :array

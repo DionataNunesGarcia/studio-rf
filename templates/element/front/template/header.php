@@ -34,27 +34,30 @@
                                 </li>
 
                                 <?php
+                                $limit = 6;
                                 $count = count($categories);
-                                //if exist 6 or more categories, show in dropdown
-                                if ($count > 4 ) {
+                                $showSubMenu = $count > $limit;
+                                //if exist 6 or more categories, show in submenu
+                                if ($showSubMenu) {
                                 ?>
-                                    <li class="dropdown">
+                                    <li>
                                         <a href="<?php  $this->Url->build('/conteudos', ['fullBase' => true]); ?>">
                                             <span>
                                                 Conteúdos
                                             </span>
                                             <i class="bi bi-chevron-down dropdown-indicator"></i>
                                         </a>
-                                        <ul>
-                                        <?php } ?>
-                                        <?php foreach ($categories as $category) { ?>
-                                            <li>
-                                                <a href="<?= $this->Url->build("/conteudos/{$category->slug}", ['fullBase' => true]); ?>">
-                                                    <?= $category->name ?>
-                                                </a>
-                                            </li>
-                                        <?php } ?>
-                                    <?php if ($count > 4 ) { ?>
+                                        <ul class="submenu">
+                                <?php } ?>
+                                <?php foreach ($categories as $category) { ?>
+                                    <li>
+                                        <a href="<?= $this->Url->build("/conteudos/{$category->slug}", ['fullBase' => true]); ?>">
+                                            <?= $category->name ?>
+                                        </a>
+                                    </li>
+                                <?php
+                                }
+                                if ($showSubMenu) { ?>
                                         </ul>
                                     </li>
                                 <?php } ?>
@@ -65,9 +68,9 @@
                         </nav>
                     </div>
                     <!-- Header-btn -->
-                    <div class="header-btns d-none d-lg-block f-right">
-                        <a href="#" class="btn header-btn">Entre em Contato</a>
-                    </div>
+<!--                    <div class="header-btns d-none d-lg-block f-right">-->
+<!--                        <a href="#" class="btn header-btn">Entre em Contato</a>-->
+<!--                    </div>-->
                     <!-- Mobile Menu -->
                     <div class="col-12">
                         <div class="mobile_menu d-block d-lg-none"></div>

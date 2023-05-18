@@ -107,6 +107,18 @@ return static function (RouteBuilder $routes) {
                 '_name' => 'content'
             ])
             ->setPass([
+                'page',
+                'search'
+            ]);
+
+        $builder
+            ->connect('/projeto/{id}/{slug}', [
+                'controller' => 'Pages',
+                'action' => 'project',
+            ], [
+                '_name' => 'project'
+            ])
+            ->setPass([
                 'id',
                 'slug'
             ]);

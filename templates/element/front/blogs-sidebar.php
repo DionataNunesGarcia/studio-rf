@@ -13,17 +13,16 @@
                         onblur="this.placeholder = 'Pesquisar Conteúdo'"
                     >
                     <div class="input-group-append">
-                        <button class="btns" type="button"><i class="ti-search"></i></button>
+                        <button class="btns" type="submit"><i class="ti-search"></i></button>
                     </div>
                 </div>
             </div>
-            <button class="button rounded-0 primary-bg text-white w-100 btn_1 boxed-btn" type="submit">Pesquisar</button>
         <?= $this->Form->end(); ?>
     </aside>
 
     <aside class="single_sidebar_widget post_category_widget">
         <h4 class="widget_title" style="color: #2d2d2d;">
-            Category
+            Categorias
         </h4>
         <ul class="list cat-list">
             <?php foreach ($categories as $category) { ?>

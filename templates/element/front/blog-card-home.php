@@ -12,6 +12,11 @@ $url = $this->Url->build("/conteudo/{$blog->id}/{$blog->slug}", ['fullBase' => t
     <div class="home-blog-single mb-30">
         <div class="blog-img-cap">
             <div class="blog-img">
+                <a href="<?= $this->Url->build("/conteudos/{$blog->blogs_category->slug}", ['fullBase' => true]); ?>">
+                    <span class="category-name">
+                        <?= h($blog->blogs_category->name) ?>
+                    </span>
+                </a>
                 <a href="<?= $url; ?>">
                     <img src="<?= $img ?>"= alt="">
                 </a>
@@ -38,7 +43,7 @@ $url = $this->Url->build("/conteudo/{$blog->id}/{$blog->slug}", ['fullBase' => t
                     );
                     ?>
                 </h4>
-                <a href="<?= $url; ?>">Leia Mais</a>
+                <a class="read-more" href="<?= $url; ?>">Leia Mais</a>
             </div>
         </div>
     </div>

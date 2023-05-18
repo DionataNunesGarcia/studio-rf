@@ -123,100 +123,25 @@ $img = $about->cover ? "Uploads/{$about->cover->filename}" : 'user-default.png';
 </div>
 <!-- Professional Services End -->
 <!-- Team Start -->
-<div class="team-area section-padding30">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="cl-xl-7 col-lg-8 col-md-10">
-                <!-- Section Tittle -->
-                <div class="section-tittle text-center mb-70">
-                    <span>Creative derector</span>
-                    <h2>Best Interitor Services</h2>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <!-- single Tem -->
-            <div class="col-xl-4 col-lg-4 col-md-6 col-sm-">
-                <div class="single-team mb-30">
-                    <div class="team-img">
-                        <img src="front-template/assets/img/gallery/team2.png" alt="">
-                    </div>
-                    <div class="team-caption">
-                        <h3><a href="#">Jhon Sunsa</a></h3>
-                        <span>Creative derector</span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-4 col-lg-4 col-md-6 col-sm-">
-                <div class="single-team mb-30">
-                    <div class="team-img">
-                        <img src="front-template/assets/img/gallery/team3.png" alt="">
-                    </div>
-                    <div class="team-caption">
-                        <h3><a href="#">Jhon Sunsa</a></h3>
-                        <span>Creative derector</span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-4 col-lg-4 col-md-6 col-sm-">
-                <div class="single-team mb-30">
-                    <div class="team-img">
-                        <img src="front-template/assets/img/gallery/team1.png" alt="">
-                    </div>
-                    <div class="team-caption">
-                        <h3><a href="#">Jhon Sunsa</a></h3>
-                        <span>Creative derector</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+<?= $this->element("front/specialists", ['specialists' => $specialists]); ?>
 <!-- Team End -->
 <!-- Testimonial Start -->
-<div class="testimonial-area testimonial-padding">
-    <div class="container">
-        <!-- Testimonial contents -->
-        <div class="row d-flex justify-content-center">
-            <div class="col-xl-8 col-lg-8 col-md-10">
-                <div class="h1-testimonial-active dot-style">
-                    <!-- Single Testimonial -->
-                    <div class="single-testimonial text-center">
-                        <!-- Testimonial Content -->
-                        <div class="testimonial-caption ">
-                            <div class="testimonial-top-cap">
-                                <img src="front-template/assets/img/gallery/testi-logo.png" alt="">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip</p>
-                            </div>
-                            <!-- founder -->
-                            <div class="testimonial-founder  ">
-                                <div class="founder-img">
-                                    <span><strong>Christine Eve</strong>   -   Co Founder</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Single Testimonial -->
-                    <div class="single-testimonial text-center">
-                        <!-- Testimonial Content -->
-                        <div class="testimonial-caption ">
-                            <div class="testimonial-top-cap">
-                                <img src="front-template/assets/img/gallery/testi-logo.png" alt="">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip</p>
-                            </div>
-                            <!-- founder -->
-                            <div class="testimonial-founder  ">
-                                <div class="founder-img">
-                                    <span><strong>Christine Eve</strong>   -   Co Founder</span>
-                                </div>
-                            </div>
-                        </div>
+<?php if ($testimonials) { ?>
+    <div class="testimonial-area testimonial-padding">
+        <div class="container">
+            <!-- Testimonial contents -->
+            <div class="row d-flex justify-content-center">
+                <div class="col-xl-8 col-lg-8 col-md-10">
+                    <div class="h1-testimonial-active dot-style">
+                        <?php foreach ($testimonials as $testimonial ) { ?>
+                            <?= $this->element("front/testimonial", ['testimonial' => $testimonial]); ?>
+                        <?php } ?>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+<?php } ?>
 <!-- Testimonial End -->
 <!-- Brand Area Start -->
 <div class="brand-area pt-120 pb-120">
@@ -250,11 +175,11 @@ $img = $about->cover ? "Uploads/{$about->cover->filename}" : 'user-default.png';
         <div class="row align-items-center justify-content-between">
             <div class="col-xl-8 col-lg-8 col-md-8">
                 <div class="wantToWork-caption wantToWork-caption2">
-                    <h2>Are you Searching For a First-Class Consultant?</h2>
+                    <h2>Você está procurando por um consultor de primeira classe?</h2>
                 </div>
             </div>
             <div class="col-xl-2 col-lg-2 col-md-3">
-                <a href="#" class="btn btn-black f-right">Contact Us</a>
+                <a href="<?= $this->Url->build("/contato", ['fullBase' => true]); ?>" class="btn btn-black f-right">Entre em Contato</a>
             </div>
         </div>
     </div>

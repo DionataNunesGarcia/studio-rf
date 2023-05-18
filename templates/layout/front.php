@@ -49,6 +49,7 @@ $url = Router::url('/', true);
         <?= $this->Html->css('../front-template/assets/css/magnific-popup.css') ?>
         <?= $this->Html->css('../front-template/assets/css/fontawesome-all.min.css') ?>
         <?= $this->Html->css('../front-template/assets/css/themify-icons.css') ?>
+        <?= $this->Html->css('../plugins/fancybox-master/dist/jquery.fancybox.min.css') ?>
         <?= $this->Html->css('../front-template/assets/css/slick.css') ?>
         <?= $this->Html->css('../front-template/assets/css/nice-select.css') ?>
         <?= $this->Html->css('../front-template/assets/css/style.css') ?>
@@ -109,6 +110,7 @@ $url = Router::url('/', true);
         <?= $this->Html->script('../front-template/assets/js/jquery.validate.min.js') ?>
         <?= $this->Html->script('../front-template/assets/js/mail-script.js') ?>
         <?= $this->Html->script('../front-template/assets/js/jquery.ajaxchimp.min.js') ?>
+        <?= $this->Html->script('../plugins/fancybox-master/dist/jquery.fancybox.js') ?>
 
         <!-- Jquery Plugins, main Jquery -->
         <?= $this->Html->script('../front-template/assets/js/plugins.js') ?>

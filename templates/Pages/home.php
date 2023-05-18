@@ -145,80 +145,38 @@ use Cake\Utility\Text;
 </div>
 
 <?= $this->element("front/specialists", ['specialists' => $specialists]); ?>
-<!--? Gallery Area Start -->
-<div class="gallery-area">
-    <div class="container-fluid p-0 fix">
-        <div class="row">
-            <div class="col-xl-6 col-lg-4 col-md-6">
-                <div class="single-gallery mb-30">
-                    <div class="gallery-img" style="background-image: url(front-template/assets/img/gallery/gallery1.png);"></div>
-                    <div class="thumb-content-box">
-                        <div class="thumb-content">
-                            <h3><span>Intorior</span>Burj Khalifa</h3>
-                            <a href="work.html"><i class="fas fa-angle-right"></i></a>
+
+<?php if ($projects) { ?>
+    <!--? Gallery Area Start -->
+    <div class="gallery-area">
+        <div class="container-fluid p-0 fix">
+            <div class="row">
+
+                <?php
+                foreach ($projects as $project) {
+                    $img = $project->cover
+                        ? "/Uploads/{$project->cover->filename}"
+                        : 'img/blog-default.png';
+                    ?>
+                    <div class="col-xl-6 col-lg-4 col-md-6">
+                        <div class="single-gallery mb-30">
+                            <div class="gallery-img" style="background-image: url(<?= $img ?>);"></div>
+                            <div class="thumb-content-box">
+                                <div class="thumb-content">
+                                    <h3><?= $project->title ?></h3>
+                                    <a href="<?= $this->Url->build("/projeto/{$project->id}/{$project->slug}", ['fullBase' => true]); ?>">
+                                        <i class="fas fa-angle-right"></i>
+                                    </a>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>
-            <div class="col-xl-3 col-lg-4 col-md-6">
-                <div class="single-gallery mb-30">
-                    <div class="gallery-img" style="background-image: url(front-template/assets/img/gallery/gallery2.png);"></div>
-                    <div class="thumb-content-box">
-                        <div class="thumb-content">
-                            <h3><span>Intorior</span>Burj Khalifa</h3>
-                            <a href="work.html"><i class="fas fa-angle-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-3 col-lg-4 col-md-6">
-                <div class="single-gallery mb-30">
-                    <div class="gallery-img" style="background-image: url(front-template/assets/img/gallery/gallery3.png);"></div>
-                    <div class="thumb-content-box">
-                        <div class="thumb-content">
-                            <h3><span>Intorior</span>Burj Khalifa</h3>
-                            <a href="work.html"><i class="fas fa-angle-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-3 col-lg-4 col-md-6">
-                <div class="single-gallery mb-30">
-                    <div class="gallery-img" style="background-image: url(front-template/assets/img/gallery/gallery4.png);"></div>
-                    <div class="thumb-content-box">
-                        <div class="thumb-content">
-                            <h3><span>Interior</span>Burj Khalifa</h3>
-                            <a href="work.html"><i class="fas fa-angle-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-3 col-lg-4 col-md-6">
-                <div class="single-gallery mb-30">
-                    <div class="gallery-img" style="background-image: url(front-template/assets/img/gallery/gallery5.png);"></div>
-                    <div class="thumb-content-box">
-                        <div class="thumb-content">
-                            <h3><span>Intorior</span>Burj Khalifa</h3>
-                            <a href="work.html"><i class="fas fa-angle-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-6 col-lg-4 col-md-6">
-                <div class="single-gallery mb-30">
-                    <div class="gallery-img" style="background-image: url(front-template/assets/img/gallery/gallery6.png);"></div>
-                    <div class="thumb-content-box">
-                        <div class="thumb-content">
-                            <h3><span>Intorior</span>Burj Khalifa</h3>
-                            <a href="work.html"><i class="fas fa-angle-right"></i></a>
-                        </div>
-                    </div>
-                </div>
+                <?php } ?>
             </div>
         </div>
     </div>
-</div>
-<!-- Testimonial End -->
+    <!-- Projects End -->
+<?php } ?>
 <!-- Testimonial Start -->
 <?php if ($testimonials) { ?>
     <div class="testimonial-area testimonial-padding">
@@ -276,6 +234,11 @@ use Cake\Utility\Text;
             <?php foreach ($blogs as $blog) { ?>
                 <?= $this->element('front/blog-card-home', ['blog' => $blog]) ?>
             <?php } ?>
+            <div class="text-center more-contents col-lg-12">
+                <a href="<?= $this->Url->build("/conteudos", ['fullBase' => true]); ?>">
+                    Ver Mais conteúdos
+                </a>
+            </div>
         </div>
     </div>
 </div>
