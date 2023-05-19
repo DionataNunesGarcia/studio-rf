@@ -26,7 +26,7 @@
         <ul class="sidebar-menu" data-widget="tree">
             <!-- Cadastros -->
             <li>
-                <a href="<?= $this->Url->build(['controller' => 'Patients', 'action' => 'index'], ['fullBase' => true]); ?>" title="" data-placement="right">
+                <a href="<?= $this->Url->build(['controller' => 'Clients', 'action' => 'index'], ['fullBase' => true]); ?>" title="" data-placement="right">
                     <i class="fa fa-users"></i>
                     <?= __('Clientes') ?>
                 </a>
